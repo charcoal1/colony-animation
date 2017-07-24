@@ -31,6 +31,10 @@ var muscleScene;
 var muscleArm; // arm muscle var
 var muscleLeg; // leg muscle var
 
+// hand rock scene
+var handRock;
+var ninth = 700 / 9;
+
 //end scene
 var endScene = false;
 
@@ -92,9 +96,20 @@ function preload() {
    water4 = loadAnimation("assets/water-stills_007.png", "assets/water-stills_008.png");
    water5 = loadAnimation("assets/water-stills_009.png", "assets/water-stills_010.png");
    water6 = loadAnimation("assets/water-stills_011.png", "assets/water-stills_012.png");
-   
+
    //muscle animations
    //muscleArm = loadAnimation("assets/")
+
+   //hand rock animation
+   handRock1 = loadAnimation("assets/hand-rock-001.png", "assets/hand-rock-002.png");
+   handRock2 = loadAnimation("assets/hand-rock-003.png", "assets/hand-rock-004.png");
+   handRock3 = loadAnimation("assets/hand-rock-005.png", "assets/hand-rock-006.png");
+   handRock4 = loadAnimation("assets/hand-rock-007.png", "assets/hand-rock-008.png");
+   handRock5 = loadAnimation("assets/hand-rock-009.png", "assets/hand-rock-010.png");
+   handRock6 = loadAnimation("assets/hand-rock-011.png", "assets/hand-rock-012.png");
+   handRock7 = loadAnimation("assets/hand-rock-013.png", "assets/hand-rock-014.png");
+   handRock8 = loadAnimation("assets/hand-rock-015.png", "assets/hand-rock-016.png");
+   handRock9 = loadAnimation("assets/hand-rock-017.png", "assets/hand-rock-018.png");
 
 }
 
@@ -114,7 +129,7 @@ function setup() {
    fill(255);
    stroke(0);
    strokeWeight(1);
-   rect(30, 140, width -60, 530);
+   rect(30, 140, width - 60, 530);
 
 }
 
@@ -320,11 +335,31 @@ function draw() {
                noStroke();
                fill(0);
                textSize(cornerSize);
-               text("Before we left we studied muscle anatomy to learn what space would do to our bodies.", cornerX, cornerY, textWide);
-               
-               
+               text("...", cornerX, cornerY, textWide);
+               // adjust hand movement for mouseY
+               if (mouseY > 0 && mouseY < ninth) {
+                  animation(handRock9, width / 2, 380);
+               } else if (mouseY > ninth && mouseY < (ninth * 2)) {
+                  animation(handRock8, width / 2, 380);
+               } else if (mouseY > ninth * 2 && mouseY < ninth * 3) {
+                  animation(handRock7, width / 2, 380);
+               } else if (mouseY > ninth * 3 && mouseY < ninth * 4) {
+                  animation(handRock6, width / 2, 380);
+               } else if (mouseY > ninth * 4 && mouseX < ninth * 5) {
+                  animation(handRock5, width / 2, 380);
+               } else if (mouseX > ninth * 5 && mouseX < ninth * 6) {
+                  animation(handRock4, width / 2, 380);
+               } else if (mouseX > ninth * 6 && mouseX < ninth * 7) {
+                  animation(handRock3, width / 2, 380);
+               } else if (mouseX > ninth * 7 && mouseX < ninth * 8) {
+                  animation(handRock2, width / 2, 380);
+               } else if (mouseX > ninth * 8 && mouseX < ninth * 9) {
+                  animation(handRock1, width / 2, 380);
+               } else {}
+
+
             }
-            
+
             if (endScene) {
                background(0);
                textFont("bodoni") // corner text
