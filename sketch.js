@@ -32,8 +32,9 @@ var muscleArm; // arm muscle var
 var muscleLeg; // leg muscle var
 
 // hand rock scene
+var handRockScene;
 var handRock;
-var ninth = 700 / 9;
+var ninth = 77;
 
 //end scene
 var endScene = false;
@@ -98,7 +99,8 @@ function preload() {
    water6 = loadAnimation("assets/water-stills_011.png", "assets/water-stills_012.png");
 
    //muscle animations
-   //muscleArm = loadAnimation("assets/")
+   muscleArm = loadAnimation("assets/muscleArm-001.png", "assets/muscleArm-002.png");
+   muscleLeg = loadAnimation("assets/muscleLeg-001.png", "assets/muscleLeg-002.png");
 
    //hand rock animation
    handRock1 = loadAnimation("assets/hand-rock-001.png", "assets/hand-rock-002.png");
@@ -327,7 +329,19 @@ function draw() {
                   image(buttonStatic, cornerX + 20, cornerY + 100);
                }
             }
-            if (muscleScene) {
+            if (muscleScene){
+               background('red');
+               //background(10, 80, 10);
+
+               textFont("bodoni") // corner text
+               noStroke();
+               fill(0);
+               textSize(cornerSize);
+               text("---", cornerX, cornerY, textWide);
+               animation(muscleLeg, width / 2, 380);
+            }
+            
+            if (handRockScene) {
                background('red');
                //background(10, 80, 10);
 
@@ -337,25 +351,36 @@ function draw() {
                textSize(cornerSize);
                text("...", cornerX, cornerY, textWide);
                // adjust hand movement for mouseY
-               if (mouseY > 0 && mouseY < ninth) {
+               if (mouseY > -1000 && mouseY < 77) {
                   animation(handRock9, width / 2, 380);
-               } else if (mouseY > ninth && mouseY < (ninth * 2)) {
+                  print('9');
+               } else if (mouseY > 76 && mouseY < 156) {
                   animation(handRock8, width / 2, 380);
-               } else if (mouseY > ninth * 2 && mouseY < ninth * 3) {
+                  print('8');
+               } else if (mouseY > 155 && mouseY < 232) {
                   animation(handRock7, width / 2, 380);
-               } else if (mouseY > ninth * 3 && mouseY < ninth * 4) {
+                  print('7');
+               } else if (mouseY > 231 && mouseY < 309) {
                   animation(handRock6, width / 2, 380);
-               } else if (mouseY > ninth * 4 && mouseX < ninth * 5) {
+                  print('6');
+               } else if (mouseY > 308 && mouseY < 386) {
                   animation(handRock5, width / 2, 380);
-               } else if (mouseX > ninth * 5 && mouseX < ninth * 6) {
+                  print('5');
+               } else if (mouseY > 385 && mouseY < 463) {
                   animation(handRock4, width / 2, 380);
-               } else if (mouseX > ninth * 6 && mouseX < ninth * 7) {
+                  print('4');
+               } else if (mouseY > 462 && mouseY < 540) {
                   animation(handRock3, width / 2, 380);
-               } else if (mouseX > ninth * 7 && mouseX < ninth * 8) {
+                  print('3');
+               } else if (mouseY > 539 && mouseY < 617) {
                   animation(handRock2, width / 2, 380);
-               } else if (mouseX > ninth * 8 && mouseX < ninth * 9) {
+                  print('2');
+               } else if (mouseY > 616 && mouseY < 1200) {
                   animation(handRock1, width / 2, 380);
-               } else {}
+                  print('1');
+               } else {
+                  print('dead');
+               }
 
 
             }
