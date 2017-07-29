@@ -27,7 +27,8 @@ var waterY = 600;
 var water1, water2, water3, water4, water5, water6, water7;
 
 // muscle scene
-var muscleScene;
+var muscleScene1;
+var muscleScene2;
 var muscleArm; // arm muscle var
 var muscleLeg; // leg muscle var
 
@@ -64,6 +65,13 @@ topRightStatY = 35;
 //Circle Top Right Animated Button variables (CENTER)
 topRightAniX = topRightStatX + 20;
 topRightAniY = topRightStatY + 20;
+
+//Circle Bottom Right Animated Button variables (CENTER)
+bottomRightAniX = (700 - 25);
+bottomRightAniY = (700 - 25);
+//Circle Bottom Right Static Buttton variables (CORNER)
+bottomRightStatX = (650);
+bottomRightStatY = (650);
 
 
 function preload() {
@@ -322,14 +330,49 @@ function draw() {
                if (mouseX > cornerX && mouseX < cornerX + circleW && mouseY > cornerY + 50 && mouseY < cornerY + circleW + 100) {
                   animation(buttonMove, cornerX + 20, cornerY + 100);
                   if (mouseIsPressed) {
-                     muscleScene = true;
+                     muscleScene1 = true;
                   }
                } else {
                   imageMode(CENTER);
                   image(buttonStatic, cornerX + 20, cornerY + 100);
                }
             }
-            if (muscleScene){
+            if (muscleScene1) {
+               background('red');
+               //background(10, 80, 10);
+
+               textFont("bodoni") // corner text
+               noStroke();
+               fill(0);
+               textSize(cornerSize);
+               text("---", cornerX, cornerY, textWide);
+               animation(muscleArm, width / 2, 380);
+               // Right top
+               if (mouseX > topRightStatX && mouseX < topRightStatX + circleW && mouseY > topRightStatY && mouseY < topRightStatY + circleW) {
+                  animation(buttonMove, topRightAniX, topRightAniY);
+                  if (mouseIsPressed) {
+                     muscleScene2 = true;
+                  }
+               } else {
+                  imageMode(CENTER);
+                  image(buttonStatic, topRightAniX, topRightAniY);
+               }
+
+               /*
+               // RIGHT (A failure!!) 
+               if (mouseX > 655 && mouseX < (655 + circleW) && mouseY > (645) && mouseY < (645 + circleW)) {
+                  animation(buttonMove, 655-20, 625+20);
+                  if (mouseIsPressed) {
+                     muscleScene1 = true;
+                  }
+               } else {
+                  imageMode(CENTER);
+                  image(buttonStatic, 655, 645);
+               }
+               */
+            }
+
+            if (muscleScene2) {
                background('red');
                //background(10, 80, 10);
 
@@ -339,8 +382,20 @@ function draw() {
                textSize(cornerSize);
                text("---", cornerX, cornerY, textWide);
                animation(muscleLeg, width / 2, 380);
+               // Right top
+
+               if (mouseX > bottomLeftStatX && mouseX < (bottomLeftStatX + circleW) && mouseY > bottomLeftStatY && mouseY < bottomLeftStatY + circleW) {
+                  animation(buttonMove, bottomLeftAniX, bottomLeftAniY);
+                  if (mouseIsPressed) {
+                     handRockScene = true;
+                     background(255, 255, 0);
+                  }
+               } else {
+                  imageMode(CENTER);
+                  image(buttonStatic, bottomLeftAniX, bottomLeftAniY);
+               }
             }
-            
+
             if (handRockScene) {
                background('red');
                //background(10, 80, 10);
@@ -381,7 +436,16 @@ function draw() {
                } else {
                   print('dead');
                }
-
+               
+               if (mouseX > topRightStatX && mouseX < topRightStatX + circleW && mouseY > topRightStatY && mouseY < topRightStatY + circleW) {
+                  animation(buttonMove, topRightAniX, topRightAniY);
+                  if (mouseIsPressed) {
+                     endScene = true;
+                  }
+               } else {
+                  imageMode(CENTER);
+                  image(buttonStatic, topRightAniX, topRightAniY);
+               }
 
             }
 
