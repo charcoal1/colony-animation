@@ -5,7 +5,7 @@ var sit1, sit2, sit3, sit4, sit5, sit6, sit7; //sit animation vars
 var sitX = 350;
 var sitY = 375;
 
-var spaceDrawCount = 20; //timer for drawing space colony
+var spaceDrawCount = 150; //timer for drawing space colony
 var t = 0; // time for scene 1
 var t1 = 0; //time for water scene
 
@@ -133,7 +133,7 @@ function setup() {
    noStroke();
    textFont("bodoni")
    textSize(cornerSize);
-   text("It's approaching in the next year. Draw the space colony slowly.", cornerX, cornerY, textWide);
+   text("Draw a space colony slowly.", cornerX, cornerY, textWide);
 
    //drawing pad
    fill(255);
@@ -172,12 +172,16 @@ function draw() {
       if (spaceOk === true) { // cuts off drawing with "ok"
          if (mouseIsPressed) {}
          noStroke();
-         textFont("Helvetica");
-         textSize(570);
-         fill(10, 80, 10);
-         //text("ok", width/2, height/2);
-         text("o", 60, 500);
-         text("k", 60 + 285, 500);
+         textFont("bodoni");
+         textSize(490);
+         //590 lowercase text size
+         //fill(10, 80, 10); green fill
+         fill(0);
+         text("O", 60, 500);
+         text("K", 290 + 30, 500);
+         //lowercase
+         //text("o", 60, 500);
+         //text("k", 60 + 285, 500);
       } else {
          if (mouseIsPressed) {
             //ellipse(mouseX, mouseY, 10, 10);
@@ -260,7 +264,7 @@ function draw() {
             noStroke();
             textFont("bodoni")
             textSize(cornerSize);
-            text("Only ten people can live in the colony comfortably.", cornerX, cornerY, textWide);
+            text("How often do you think of the colony we'll see?", cornerX, cornerY, textWide);
             animation(spaceColony, width / 2, 385);
             fill(255, 255, 0);
             stroke(0);
@@ -287,7 +291,7 @@ function draw() {
             noStroke();
             fill(0);
             textSize(cornerSize);
-            text("I remember the view from 2000 ft, when we were sick in our cabin.", cornerX, cornerY, textWide);
+            text("I remember the view of the planet from 2000 ft, when we were sick in our cabin.", cornerX, cornerY, textWide);
             animation(aerial, width / 2, 400);
 
             //if mouse over button top right
@@ -309,7 +313,7 @@ function draw() {
                noStroke();
                fill(0);
                textSize(cornerSize);
-               text("The water in the freight might go bad before we arrive.", cornerX, cornerY, textWide);
+               text("We thought the water in the freight might go bad before we arrive.", cornerX, cornerY, textWide);
 
                // Mouseover changes images X-axis
                if (mouseX > -10 && mouseX < 120) {
@@ -345,7 +349,7 @@ function draw() {
                noStroke();
                fill(0);
                textSize(cornerSize);
-               text("---", cornerX, cornerY, textWide);
+               text("You told me to study muscles so I would stay strong in space.", cornerX, cornerY, textWide);
                animation(muscleArm, width / 2, 380);
                // Right top
                if (mouseX > topRightStatX && mouseX < topRightStatX + circleW && mouseY > topRightStatY && mouseY < topRightStatY + circleW) {
@@ -380,7 +384,7 @@ function draw() {
                noStroke();
                fill(0);
                textSize(cornerSize);
-               text("---", cornerX, cornerY, textWide);
+               text("So I exercised and thought of what different land does to our bodies.", cornerX, cornerY, textWide);
                animation(muscleLeg, width / 2, 380);
                // Right top
 
@@ -404,7 +408,7 @@ function draw() {
                noStroke();
                fill(0);
                textSize(cornerSize);
-               text("...", cornerX, cornerY, textWide);
+               text("You gave me earth rock to remind me of home. Green grass, cold rocks, river streams, gone.", cornerX, cornerY, textWide);
                // adjust hand movement for mouseY
                if (mouseY > -1000 && mouseY < 77) {
                   animation(handRock9, width / 2, 380);
@@ -436,7 +440,7 @@ function draw() {
                } else {
                   print('dead');
                }
-               
+
                if (mouseX > topRightStatX && mouseX < topRightStatX + circleW && mouseY > topRightStatY && mouseY < topRightStatY + circleW) {
                   animation(buttonMove, topRightAniX, topRightAniY);
                   if (mouseIsPressed) {
